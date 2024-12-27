@@ -1,0 +1,53 @@
+-- Active: 1734945449133@@127.0.0.1@3306@dorixona
+
+CREATE DATABASE DORIXONA;
+
+SHOW DATABASES;
+
+USE DORIXONA;
+
+SHOW TABLES;
+
+CREATE TABLE Phermacies(
+    id BIGINT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    addres VARCHAR(200),
+    location VARCHAR(200),
+    phone VARCHAR(200),
+    email VARCHAR(200),
+    region_id BIGINT(11),
+    district_id BIGINT(11)
+)
+
+CREATE TABLE Region (
+    id BIGINT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255)
+)
+
+CREATE TABLE District (
+    id BIGINT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    region_id BIGINT(11)
+)
+
+CREATE TABLE Stock (
+    id BIGINT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    pharmacy_id BIGINT(11),
+    medicine_id BIGINT(11),
+    quanity BIGINT(11)
+)
+
+CREATE TABLE Medicines (
+    id BIGINT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    manufaculturer VARCHAR(200),
+    medicine_type_id BIGINT(11),
+    price FLOAT(10),
+    exipry_date DATE,
+    info TEXT
+)
+
+CREATE TABLE MedicineType (
+    id BIGINT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255)
+)
